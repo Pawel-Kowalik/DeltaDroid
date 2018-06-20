@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Delta Droid</string>
+    <string name="mainMenuButtonName">oblicz</string>
+    <string name="resolveButtonName">oblicz</string>
+    <string name="inputData">Wprowadź dane</string>
+    <string name="A">"'a' nie może być równe 0"</string>
+    <string name="notExist">"x1 i x2 nie istnieje</string>
+    <string name="helpButtonName">pomoc</string>
+</resources>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Delta Droid</string>
+    <string name="mainMenuButtonName">resolve</string>
+    <string name="resolveButtonName">resolve</string>
+    <string name="inputData">Input data</string>
+    <string name="A">"'a' can't be equals 0"</string>
+    <string name="notExist">"x1 and x2 not exist</string>
+    <string name="helpButtonName">help</string>
+
+</resources>
