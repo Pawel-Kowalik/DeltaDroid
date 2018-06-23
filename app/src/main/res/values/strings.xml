@@ -6,5 +6,6 @@
     <string name="A">"'a' can't be equals 0"</string>
     <string name="notExist">"x1 and x2 not exist</string>
     <string name="helpButtonName">help</string>
+    <string name="makeChart">Maka chart</string>
 
 </resources>
