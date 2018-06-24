@@ -16,6 +16,10 @@ import static com.pawel14157.deltadroid.R.string.A;
 import static com.pawel14157.deltadroid.R.string.inputData;
 
 public class Resolve extends AppCompatActivity {
+    private double  a;
+    private double b;
+    private double c;
+    private double fDelta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,8 +103,6 @@ public class Resolve extends AppCompatActivity {
      * @param view
      */
     public void resolveDelta(View view) {
-        double  a, b, c, fDelta;
-
         EditText inputA = (EditText) findViewById(R.id.inputA);
         EditText inputB = (EditText) findViewById(R.id.inputB);
         EditText inputC = (EditText) findViewById(R.id.inputC);
@@ -127,18 +129,20 @@ public class Resolve extends AppCompatActivity {
             a = Double.parseDouble(inputA.getText().toString());
             b = Double.parseDouble(inputB.getText().toString());
             c = Double.parseDouble(inputC.getText().toString());
-            imageA.setText(String.valueOf(a));
+
+            imageA.setText(String.valueOf(checkNumber(a)));
             if (b >= 0)
-                imageB.setText("+" + String.valueOf(b));
+                imageB.setText("+" + String.valueOf(checkNumber(b)));
             else
-                imageB.setText(String.valueOf(b));
+                imageB.setText(String.valueOf(checkNumber(b)));
+
             if (c >= 0)
-                imageC.setText("+" + String.valueOf(c));
+                imageC.setText("+" + String.valueOf(checkNumber(c)));
             else
-                imageC.setText(String.valueOf(c));
+                imageC.setText(String.valueOf(checkNumber(c)));
 
             fDelta = calculateDelta(a, b, c);
-            delta.setText("Δ="+String.valueOf(fDelta));
+            delta.setText("Δ="+String.valueOf(round(fDelta)));
 
             if(fDelta>=0)
                 sqrtDelta.setText("√Δ="+String.valueOf(round(Math.sqrt(fDelta))));
@@ -159,6 +163,26 @@ public class Resolve extends AppCompatActivity {
             p.setText("p="+String.valueOf(round(top(fDelta, a, b)[0])));
             q.setText("q="+String.valueOf(round(top(fDelta, a, b)[1])));
         }
+        }
+
+        public String checkNumber(double number){
+            String checkNumberString;
+            StringBuilder stringBuilder = new StringBuilder();
+            if(number % 1.0 == 0){
+                checkNumberString = String.valueOf(number);
+                for (int i=0; i<checkNumberString.length(); i++){
+                    if(checkNumberString.charAt(i) == '.'){
+                        break;
+                    }
+                    else {
+                        stringBuilder.append(checkNumberString.charAt(i));
+                    }
+                }
+            }
+            else {
+                return String.valueOf(number);
+            }
+            return stringBuilder.toString();
         }
 
 }
