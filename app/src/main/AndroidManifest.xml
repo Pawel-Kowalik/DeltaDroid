@@ -20,8 +20,9 @@
         </activity>
         <activity
             android:name=".Resolve"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Help"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".Help" />
+        <activity android:name=".Chart"></activity>
     </application>
 
 </manifest>

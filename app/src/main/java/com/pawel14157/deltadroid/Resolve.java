@@ -1,6 +1,7 @@
 package com.pawel14157.deltadroid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.icu.math.BigDecimal;
 import android.icu.text.DecimalFormat;
 import android.icu.text.StringPrepParseException;
@@ -20,6 +21,26 @@ public class Resolve extends AppCompatActivity {
     private double b;
     private double c;
     private double fDelta;
+    private double x1;
+    private double x2;
+    private double p;
+    private double q;
+
+    public void setX1(double x1) {
+        this.x1 = x1;
+    }
+
+    public void setX2(double x2) {
+        this.x2 = x2;
+    }
+
+    public void setP(double p) {
+        this.p = p;
+    }
+
+    public void setQ(double q) {
+        this.q = q;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,18 +171,26 @@ public class Resolve extends AppCompatActivity {
             if(fDelta>0) {
                     x1.setText("x1=" + String.valueOf(round(deltaGreater(fDelta, a, b)[0])));
                     x2.setText("x2=" + String.valueOf(round(deltaGreater(fDelta, a, b)[1])));
+                    setX1(round(deltaGreater(fDelta, a, b)[0]));
+                    setX2(round(deltaGreater(fDelta, a, b)[1]));
             }
             else if(fDelta == 0){
                 x1.setText("x="+String.valueOf(round(deltaEquals(fDelta, a, b))));
                 x2.setText("");
+                setX1(round(deltaEquals(fDelta, a, b)));
+                setX2(round(deltaEquals(fDelta, a, b)));
             }
             else if(fDelta < 0) {
                 x1.setText(R.string.notExist);
                 x2.setText("");
+                setX1(Double.parseDouble(null));
+                setX2(Double.parseDouble(null));
             }
 
             p.setText("p="+String.valueOf(round(top(fDelta, a, b)[0])));
             q.setText("q="+String.valueOf(round(top(fDelta, a, b)[1])));
+            setP(round(top(fDelta, a, b)[0]));
+            setQ(round(top(fDelta, a, b)[1]));
         }
         }
 
@@ -185,4 +214,16 @@ public class Resolve extends AppCompatActivity {
             return stringBuilder.toString();
         }
 
+        public void makeChart(View view){
+            Intent intent = new Intent(getApplicationContext(), Chart.class);
+            intent.putExtra("a", a);
+            intent.putExtra("b", b);
+            intent.putExtra("c", c);
+            intent.putExtra("x1", x1);
+            intent.putExtra("x2", x2);
+            intent.putExtra("p", p);
+            intent.putExtra("q", q);
+
+            startActivity(intent);
+        }
 }
