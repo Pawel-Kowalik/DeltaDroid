@@ -7,4 +7,6 @@
     <string name="A">"'a' nie może być równe 0"</string>
     <string name="notExist">"x1 i x2 nie istnieje</string>
     <string name="helpButtonName">pomoc</string>
+    <string name="makeChart">Zrób wykres</string>
+    <string name="resolveEquation">Policz równanie</string>
 </resources>

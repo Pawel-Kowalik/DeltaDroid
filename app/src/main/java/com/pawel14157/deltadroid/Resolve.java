@@ -25,6 +25,10 @@ public class Resolve extends AppCompatActivity {
     private double x2;
     private double p;
     private double q;
+    private  EditText inputA;
+    private  EditText inputB;
+    private  EditText inputC;
+    private boolean chart;
 
     public void setX1(double x1) {
         this.x1 = x1;
@@ -47,7 +51,9 @@ public class Resolve extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resolve);
 
-
+        inputA = (EditText) findViewById(R.id.inputA);
+        inputB = (EditText) findViewById(R.id.inputB);
+        inputC = (EditText) findViewById(R.id.inputC);
     }
     /**
      * calcualte delta
@@ -124,9 +130,7 @@ public class Resolve extends AppCompatActivity {
      * @param view
      */
     public void resolveDelta(View view) {
-        EditText inputA = (EditText) findViewById(R.id.inputA);
-        EditText inputB = (EditText) findViewById(R.id.inputB);
-        EditText inputC = (EditText) findViewById(R.id.inputC);
+
 
         TextView delta = (TextView) findViewById(R.id.delta);
         TextView sqrtDelta = (TextView) findViewById(R.id.sqrtDelta);
@@ -191,6 +195,7 @@ public class Resolve extends AppCompatActivity {
             q.setText("q="+String.valueOf(round(top(fDelta, a, b)[1])));
             setP(round(top(fDelta, a, b)[0]));
             setQ(round(top(fDelta, a, b)[1]));
+            chart = true;
         }
         }
 
@@ -215,15 +220,20 @@ public class Resolve extends AppCompatActivity {
         }
 
         public void makeChart(View view){
-            Intent intent = new Intent(getApplicationContext(), Chart.class);
-            intent.putExtra("a", a);
-            intent.putExtra("b", b);
-            intent.putExtra("c", c);
-            intent.putExtra("x1", x1);
-            intent.putExtra("x2", x2);
-            intent.putExtra("p", p);
-            intent.putExtra("q", q);
-
-            startActivity(intent);
+            if(chart == true){
+                Intent intent = new Intent(getApplicationContext(), Chart.class);
+                intent.putExtra("a", a);
+                intent.putExtra("b", b);
+                intent.putExtra("c", c);
+                intent.putExtra("x1", x1);
+                intent.putExtra("x2", x2);
+                intent.putExtra("p", p);
+                intent.putExtra("q", q);
+                chart = false;
+                startActivity(intent);
+            }
+            else {
+                Toast.makeText(this, R.string.resolveEquation, Toast.LENGTH_SHORT).show();
+            }
         }
 }
