@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,10 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Resolve"
+            android:name=".activity.ResolveActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".Help" />
-        <activity android:name=".Chart"></activity>
+        <activity android:name=".activity.HelpActivity" />
+        <activity android:name=".activity.ChartActivity"/>
     </application>
 
 </manifest>

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DeltaDroid.iml" filepath="$PROJECT_DIR$/DeltaDroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/DeltaDroid-app.iml" filepath="$PROJECT_DIR$/app/DeltaDroid-app.iml" group="DeltaDroid/app" />
+      <module fileurl="file://$PROJECT_DIR$/StudioProjects-DeltaDroid.iml" filepath="$PROJECT_DIR$/StudioProjects-DeltaDroid.iml" group="DeltaDroid" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
