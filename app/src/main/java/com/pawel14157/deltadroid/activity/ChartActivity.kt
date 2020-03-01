@@ -33,7 +33,7 @@ class ChartActivity : AppCompatActivity() {
     }
 
     fun back(view: View) {
-        val intent = Intent(applicationContext, ResolveActivity::class.java)
+        val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
     }
 }

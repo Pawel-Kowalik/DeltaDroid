@@ -18,10 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.ResolveActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".activity.HelpActivity" />
         <activity android:name=".activity.ChartActivity"/>
     </application>
 
